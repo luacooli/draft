@@ -1,8 +1,8 @@
 import { Route } from 'wouter';
 import { ApolloProvider } from '@apollo/client';
 import client from './apolloClient';
-import NotesPage from './components/NotesPage';
-import EditorPage from './components/EditorPage';
+import NotesPage from './pages/NotesPage/NotesPage';
+import EditorPage from './pages/EditorPage/EditorPage';
 import './App.css';
 
 function App() {

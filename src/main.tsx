@@ -2,7 +2,7 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { ApolloProvider } from '@apollo/client';
 import client from './apolloClient';
-import App from './App';
+import Home from './App';
 import { Router } from 'wouter';
 
 const container = document.getElementById('root');
@@ -13,7 +13,7 @@ if (container) {
     <React.StrictMode>
       <ApolloProvider client={client}>
         <Router>
-          <App />
+          <Home />
         </Router>
       </ApolloProvider>
     </React.StrictMode>

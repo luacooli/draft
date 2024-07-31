@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
 import { Link } from 'wouter';
+import './NotesPage.css'
 
 const GET_NOTES_QUERY = gql`
   query GetNotes {
