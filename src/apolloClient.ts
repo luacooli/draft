@@ -9,6 +9,6 @@ const client = new ApolloClient({
 
 export default client
 
-// nameless-cliffs-09576
-// https://nameless-cliffs-09576-3f7c2702c624.herokuapp.com/ | https://git.heroku.com/nameless-cliffs-09576.git
+// draft-2
+// https://draft-2-dc57e27f3cc0.herokuapp.com/ | https://git.heroku.com/draft-2.git
 
