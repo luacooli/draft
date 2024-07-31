@@ -1,6 +1,11 @@
 import './Button.css'
 
-function Button({text, onClick}) {
+interface ButtonProps {
+  text: string,
+  onClick: () => void
+}
+
+function Button({text, onClick}: ButtonProps ) {
   return (
     <>
       <button onClick={onClick}>{text}</button>
