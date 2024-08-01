@@ -1,6 +1,6 @@
 import { gql, useQuery } from '@apollo/client';
-import { Link } from 'wouter';
-import './NotesPage.css'
+import LinkTo from '../../components/Link/LinkTo';
+import './NotesPage.scss'
 
 const GET_NOTES_QUERY = gql`
   query GetNotes {
@@ -21,7 +21,7 @@ function NotesPage() {
         <p key={note.id}>{note.content}</p>
       ))}
 
-      <Link href='/'>Back to editor</Link>
+      <LinkTo path="/" text="Back to editor" />
     </>
   )
 }

@@ -3,7 +3,7 @@ import { gql, useMutation, useQuery } from '@apollo/client';
 import { Editor, EditorState } from 'draft-js';
 import Button from '../../components/Button/Button';
 import LinkTo from '../../components/Link/LinkTo';
-import './EditorPage.css';
+import './EditorPage.scss';
 
 const SAVE_NOTE_MUTATION = gql`
   mutation SaveNote($content: String!) {
@@ -63,7 +63,7 @@ function EditorPage() {
         <Button text={'Save note'} onClick={handleSave}/>
       </div>
 
-      <LinkTo path="/notes" text="See your notes" />
+      <LinkTo path="/notes" text="See my notes" />
     </>
   )
 }

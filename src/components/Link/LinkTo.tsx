@@ -1,4 +1,5 @@
 import { Link } from 'wouter';
+import './LinkTo.scss'
 
 interface LinkToProps {
   path: string,
@@ -8,7 +9,9 @@ interface LinkToProps {
 function LinkTo({path, text}: LinkToProps) {
   return (
     <>
-      <Link href={path} className="link">{text}</Link>
+      <div className='link-container'>
+        <Link href={path} className="link">{text}</Link>
+      </div>
     </>
   )
 }

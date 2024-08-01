@@ -3,7 +3,7 @@ import { ApolloProvider } from '@apollo/client';
 import client from './apolloClient';
 import NotesPage from './pages/NotesPage/NotesPage';
 import EditorPage from './pages/EditorPage/EditorPage';
-import './App.css';
+import './App.scss';
 
 function App() {
 

@@ -1,4 +1,4 @@
-import './Button.css'
+import './Button.scss'
 
 interface ButtonProps {
   text: string;
@@ -7,9 +7,7 @@ interface ButtonProps {
 
 function Button({text, onClick}: ButtonProps ) {
   return (
-    <>
-      <button onClick={onClick}>{text}</button>
-    </>
+    <button onClick={onClick}>{text}</button>
   )
 }
 
