@@ -1,8 +1,8 @@
 import './Button.css'
 
 interface ButtonProps {
-  text: string,
-  onClick: () => void
+  text: string;
+  onClick: () => void;
 }
 
 function Button({text, onClick}: ButtonProps ) {
