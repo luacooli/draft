@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.11.1",
+    "@tcgdex/sdk": "^2.5.1",
     "draft-js": "^0.11.7",
     "graphql": "^16.9.0",
     "react": "^18.3.1",

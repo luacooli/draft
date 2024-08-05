@@ -60,10 +60,12 @@ function EditorPage() {
         <br />
         <br />
 
-        <Button text={'Save note'} onClick={handleSave}/>
+        <Button text='Save note' onClick={handleSave}/>
       </div>
 
       <LinkTo path="/notes" text="See my notes" />
+
+      <LinkTo path="/pokemon" text="Explore some Pokemons" />
     </>
   )
 }
