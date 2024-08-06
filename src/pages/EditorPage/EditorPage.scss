@@ -1,25 +1,27 @@
+@import '../../assets/styles/main.scss';
+
 h1 {
   text-align: center;
 }
 
 .card {
   max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
+  margin: $spacer-xl auto;
+  padding: $spacer-xl;
   border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: $spacer-s;
+  box-shadow: 0 $spacer-xs/2 $spacer-s rgba(0, 0, 0, 0.1);
 
   div {
-    margin-top: 20px;
+    margin-top: $spacer-m;
   }
 
   p {
     background: #f9f9f9;
-    padding: 10px;
-    border-radius: 4px;
+    padding: $spacer-l;
+    border-radius: $spacer-xs;
     border: 1px solid #ddd;
-    margin-bottom: 10px;
+    margin-bottom: $spacer-m;
   }
 }
 
@@ -28,6 +30,6 @@ h1 {
   justify-content: center;
 
   .link__container:first-child {
-    margin-right: 1rem;
+    margin-right: $spacer-l;
   }
 }

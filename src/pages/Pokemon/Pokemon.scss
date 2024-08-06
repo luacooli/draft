@@ -1,3 +1,5 @@
+@import '../../assets/styles/main.scss';
+
 .navbar {
   display: flex;
   align-items: center;
@@ -7,11 +9,11 @@
     width: 80%;
     display: flex;
     justify-content: space-between;
-    padding: 1rem;
+    padding: $spacer-l;
 
     span {
       cursor: pointer;
-      font-size: 1rem;
+      font-size: $spacer-l;
       color: #b14e5f;
       font-weight: bold;
       text-transform: uppercase;
@@ -24,6 +26,6 @@
   flex-wrap: wrap;
 
   .card {
-    min-width: 8rem;
+    min-width: $spacer-xl*8;
   }
 }
