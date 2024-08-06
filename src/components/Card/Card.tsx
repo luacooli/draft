@@ -1,6 +1,14 @@
 import { useLocation } from 'wouter'
 
-function Card(card: any) {
+interface CardProps {
+  card: {
+    id: string;
+    name: string;
+    image?: string;
+  }
+}
+
+function Card({ card }: CardProps) {
   const [, navigate] = useLocation()
 
   const handleCardDetail = async (cardId: string) => {

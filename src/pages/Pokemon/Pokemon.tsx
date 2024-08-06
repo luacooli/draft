@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import Button from '../../components/Button/Button'
-import { getCards } from '../../service/tcgdexService'
+import { getCards, getCardsById } from '../../service/tcgdexService'
 import Card from '../../components/Card/Card'
 import './Pokemon.scss'
+import Navbar from '../../components/Navbar/Navbar'
 
 function Pokemon() {
   const [cards, setCards] = useState([])
   const [searchTerm, setSearchTerm] = useState([])
-  const abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
 
   const handleLoadCards = async () => {
     try {
@@ -25,12 +25,9 @@ function Pokemon() {
     setCards(filteredCards)
   }
 
-  const handleSearch = async (e) => {
-    const term = e.target.value
-    console.log(term);
-    
+  const handleSearch = async () => {
     try {
-      const result = await getCardsByName(searchTerm)
+      const result = await getCardsById(searchTerm)
       setCards(result)
     } catch (error) {
       console.log('Fail to search by this name', error);
@@ -40,25 +37,18 @@ function Pokemon() {
 
   return (
     <>
-      <nav className='navbar'>
-        <div className='filterABC'>
-          {abc.map((l) => {
-            return (
-              <span key={l} onClick={handleFilterByLetter}>{l}</span>
-            )
-          })}
-        </div>
-        <div>
-          <input type="text" onChange={e => setSearchTerm(e.target.value)} />
-          <button onClick={handleSearch}>buscar</button>
-        </div>
-      </nav>
+      <Navbar
+        onFilter={handleFilterByLetter}
+        onChange={e => setSearchTerm(e.target.value)}
+        onSearch={handleSearch}
+      />
+
       <Button text='Load all cards' onClick={handleLoadCards} />
 
       <div className='cards__container'>
         {cards.map((card: any) => {
           return (
-            <Card card={card}/>
+            <Card key={card.id} card={card}/>
           )
         })}
       </div>

@@ -8,19 +8,18 @@ function PokemonDetails() {
 
   useEffect(() => {
     const fetchCard = async () => {
-      try {
-        const result = await getCardsById(params.id)
-        console.log(result);
-        setCard(result)
-      } catch (error) {
-        console.log('Failed to load card details')
+      if (params?.id) {
+        try {
+          const result = await getCardsById(params.id);
+          setCard(result);
+        } catch (error) {
+          console.log('Failed to load card details', error);
+        }
       }
-    }
+    };
 
-    if (match) {
-      fetchCard()
-    }
-  }, [match, params.id])
+    fetchCard();
+  }, [params?.id]);
 
   return (
     <>
