@@ -1,15 +1,13 @@
 import { useState } from 'react'
-import { useLocation } from 'wouter'
 import Button from '../../components/Button/Button'
-import { getCards, getCardsById } from '../../service/tcgdexService'
+import { getCards } from '../../service/tcgdexService'
+import Card from '../../components/Card/Card'
 import './Pokemon.scss'
-import { navigate } from 'wouter/use-hash-location'
 
 function Pokemon() {
   const [cards, setCards] = useState([])
   const [searchTerm, setSearchTerm] = useState([])
   const abc = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l']
-  const [, navigate] = useLocation()
 
   const handleLoadCards = async () => {
     try {
@@ -40,10 +38,6 @@ function Pokemon() {
     }
   }
 
-  const handleCardDetail = async (cardId: string) => {
-    navigate(`/pokemon/${cardId}`)
-  }
-
   return (
     <>
       <nav className='navbar'>
@@ -64,13 +58,7 @@ function Pokemon() {
       <div className='cards__container'>
         {cards.map((card: any) => {
           return (
-            <div key={card.id} className='card' onClick={() => handleCardDetail(card.id)}>
-              {/* <div>
-              <img src={card.image} alt={card.name} />
-            </div> */}
-              <h4>{card.name}</h4>
-              <p>{card.id}</p>
-            </div>
+            <Card card={card}/>
           )
         })}
       </div>
