@@ -23,11 +23,11 @@ h1 {
   }
 }
 
-textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-sizing: border-box;
+.links__container {
+  display: flex;
+  justify-content: center;
+
+  .link__container:first-child {
+    margin-right: 1rem;
+  }
 }

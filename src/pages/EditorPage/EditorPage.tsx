@@ -63,9 +63,10 @@ function EditorPage() {
         <Button text='Save note' onClick={handleSave}/>
       </div>
 
-      <LinkTo path="/notes" text="See my notes" />
-
-      <LinkTo path="/pokemon" text="Explore some Pokemons" />
+      <div className='links__container'>
+        <LinkTo path="/notes" text="See my notes" />
+        <LinkTo path="/pokemon" text="Explore some Pokemons" />
+      </div>
     </>
   )
 }

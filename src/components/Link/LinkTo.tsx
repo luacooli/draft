@@ -9,7 +9,7 @@ interface LinkToProps {
 function LinkTo({path, text}: LinkToProps) {
   return (
     <>
-      <div className='link-container'>
+      <div className='link__container'>
         <Link href={path} className="link">{text}</Link>
       </div>
     </>

@@ -14,9 +14,9 @@ export const getCards = async () => {
   }
 }
 
-export const getCardsByName = async (term: string) => {
+export const getCardsById = async (id: string) => {
   try {
-    const cards = await tcgdex.fetch('cards', term)
+    const cards = await tcgdex.fetch('cards', id)
     return cards
   } catch (error) {
     console.log('Fail to load by this letter', error);
