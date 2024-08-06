@@ -12,6 +12,8 @@ function Card({ card }: CardProps) {
   const [, navigate] = useLocation()
 
   const handleCardDetail = async (cardId: string) => {
+    console.log(cardId);
+    
     navigate(`/pokemon/${cardId}`)
   }
 

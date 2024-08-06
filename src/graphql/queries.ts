@@ -12,7 +12,7 @@ export const GET_CARDS = gql`
 
 export const GET_CARD_BY_ID = gql`
   query GetCardById($id: ID!) {
-    card(id: $id) {
+    card(filters: { id: $id }) {
       id,
       localId,
       name,
@@ -20,7 +20,6 @@ export const GET_CARD_BY_ID = gql`
       category,
       rarity,
       hp,
-      types,
       description,
       evolveFrom,
       level,
