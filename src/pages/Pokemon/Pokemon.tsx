@@ -1,40 +1,29 @@
 import { useState } from 'react'
+import { useQuery } from '@apollo/client'
 import Button from '../../components/Button/Button'
-import { getCards, getCardsById } from '../../service/tcgdexService'
 import Card from '../../components/Card/Card'
-import './Pokemon.scss'
+import { GET_CARDS } from '../../graphql/queries'
 import Navbar from '../../components/Navbar/Navbar'
+import './Pokemon.scss'
 
 function Pokemon() {
   const [cards, setCards] = useState([])
   const [searchTerm, setSearchTerm] = useState([])
+  const { loading, error, data, refetch } = useQuery(GET_CARDS)
 
-  const handleLoadCards = async () => {
-    try {
-      const result = await getCards()
-      setCards(result);
-    } catch (error) {
-      console.log('Fail to load cards', error);
+  const handleLoadCards = () => {
+    if (data) {
+      console.log(data);
+      setCards(data)
     }
   }
 
-  const handleFilterByLetter = async (e) => {
-    const letter = e.currentTarget.textContent.toLowerCase()
-    const filteredCards = cards.filter(card => card.name.startsWith(letter))
+  const handleFilterByLetter = () => {}
+  const handleSearch = () => {}
 
-    setCards(filteredCards)
-  }
-
-  const handleSearch = async () => {
-    try {
-      const result = await getCardsById(searchTerm)
-      setCards(result)
-    } catch (error) {
-      console.log('Fail to search by this name', error);
-      
-    }
-  }
-
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error.message}</p>
+  
   return (
     <>
       <Navbar
@@ -46,7 +35,7 @@ function Pokemon() {
       <Button text='Load all cards' onClick={handleLoadCards} />
 
       <div className='cards__container'>
-        {cards.map((card: any) => {
+        {data && data.cards.map((card: any) => {
           return (
             <Card key={card.id} card={card}/>
           )

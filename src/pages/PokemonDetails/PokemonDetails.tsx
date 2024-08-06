@@ -1,29 +1,22 @@
-import { useEffect, useState } from "react"
+import { useQuery } from "@apollo/client"
 import { useRoute } from "wouter"
-import { getCardsById } from "../../service/tcgdexService"
+import { GET_CARD_BY_ID } from "../../graphql/queries"
 
 function PokemonDetails() {
   const [match, params] = useRoute("/pokemon/:id")
-  const [card, setCard] = useState(null)
+  const { loading, error, data } = useQuery(GET_CARD_BY_ID, {
+    variables: { id: params?.id }
+  })
 
-  useEffect(() => {
-    const fetchCard = async () => {
-      if (params?.id) {
-        try {
-          const result = await getCardsById(params.id);
-          setCard(result);
-        } catch (error) {
-          console.log('Failed to load card details', error);
-        }
-      }
-    };
-
-    fetchCard();
-  }, [params?.id]);
+  console.log(data);
+  
+  if (loading) return <p>Loading...</p>
+  if (error) return <p>Error: {error.message}</p>
 
   return (
     <>
-      <h2>{card.name} Details</h2>
+      <h2>{data.card.name} Details</h2>
+      <p>id: {data.card.id}</p>
     </>
   )
 }
